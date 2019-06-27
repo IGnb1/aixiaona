@@ -18,6 +18,7 @@
             var msp = prompt('小娜\n1.求和\n2.日期\n3.讲笑话\n输入q可以退出小娜');
             return msp;
         }
+        // 3. 求和
         this.sum = function () {
             var num = prompt('输入需要求和的数字，用逗号隔开');
             var arr = num.split(',');
@@ -27,6 +28,7 @@
             }
             alert(number);
         }
+        // 4. 日期
         this.date = function () {
             var date = new Date(),
                 y = date.getFullYear(),
@@ -43,19 +45,32 @@
             var time = y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
             alert(time);
         }
+        // 5. 讲笑话    
         this.telljokes = function () {
-            var jokes = ['笑话1', '笑话2', '笑话3'];
+            // var jokes = ['笑话1', '笑话2', '笑话3'];
             var ran = Math.floor(Math.random() * jokes.length);
             alert(jokes[ran]);
+            var also = confirm('如果你也有笑话，可以和我说哦');
+            if(also){
+                var add = prompt('请开始你的表演');
+                if(add){
+                    alert('哈哈，拿个本本记起来');
+                    jokes.push(add);
+                }else{
+                    alert('说好的笑话呢');
+                }
+            }else{
+                alert('这次先放过你，下次你别想走，嘿！');
+            }
+            console.log(jokes);
         }
     }
-    // 2. 退出
-    // 3. 求和
-    // 4. 日期
-    // 5. 讲笑话
     var xiaona = new XiaoNa();
+    //笑话数组放在全局防止每次判断都会重置笑话，阻止添加
+    var jokes = ['笑话1', '笑话2', '笑话3'];
     while (true) {
         var msp = xiaona.ask();
+        // 2. 退出
         if (msp === 'q') {
             break;
         }
