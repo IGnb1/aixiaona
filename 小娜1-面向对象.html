@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1. 询问
+    function XiaoNa() {
+        this.ask = function () {
+            var msp = prompt('小娜\n1.求和\n2.日期\n3.讲笑话\n输入q可以退出小娜');
+            return msp;
+        }
+        this.sum = function () {
+            var num = prompt('输入需要求和的数字，用逗号隔开');
+            var arr = num.split(',');
+            var number = 0;
+            for (var i = 0; i < arr.length; i++) {
+                number += parseFloat(arr[i]);
+            }
+            alert(number);
+        }
+        this.date = function () {
+            var date = new Date(),
+                y = date.getFullYear(),
+                M = date.getMonth() + 1,
+                d = date.getDate(),
+                h = date.getHours(),
+                m = date.getMinutes(),
+                s = date.getSeconds();
+            M < 10 ? M = '0' + M : M;
+            d < 10 ? d = '0' + d : d;
+            h < 10 ? h = '0' + h : h;
+            m < 10 ? m = '0' + m : m;
+            s < 10 ? s = '0' + s : s;
+            var time = y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
+            alert(time);
+        }
+        this.telljokes = function () {
+            var jokes = ['笑话1', '笑话2', '笑话3'];
+            var ran = Math.floor(Math.random() * jokes.length);
+            alert(jokes[ran]);
+        }
+    }
+    // 2. 退出
+    // 3. 求和
+    // 4. 日期
+    // 5. 讲笑话
+    var xiaona = new XiaoNa();
+    while (true) {
+        var msp = xiaona.ask();
+        if (msp === 'q') {
+            break;
+        }
+        switch (msp) {
+            //求和
+            case '1':
+            case '求和':
+                xiaona.sum();
+                break;
+            case '2':
+            case '日期':
+                xiaona.date();
+                break;
+            case '3':
+            case '笑话':
+                xiaona.telljokes();
+                break;
+            default:
+                alert('输入错了');
+                break;
+        }
+    }
+</script>
+
+</html>
