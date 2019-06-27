@@ -50,16 +50,20 @@
             // var jokes = ['笑话1', '笑话2', '笑话3'];
             var ran = Math.floor(Math.random() * jokes.length);
             alert(jokes[ran]);
+            //可以选择性自定义笑话
+            //点击确认进入自定义  选择取消离开
             var also = confirm('如果你也有笑话，可以和我说哦');
-            if(also){
+            if (also) {
+                //接收输入的笑话
                 var add = prompt('请开始你的表演');
-                if(add){
+                //判断接收到的笑话是否有内容
+                if (add) {
                     alert('哈哈，拿个本本记起来');
                     jokes.push(add);
-                }else{
+                } else {
                     alert('说好的笑话呢');
                 }
-            }else{
+            } else {
                 alert('这次先放过你，下次你别想走，嘿！');
             }
             console.log(jokes);
@@ -71,7 +75,7 @@
     while (true) {
         var msp = xiaona.ask();
         // 2. 退出
-        if (msp === 'q') {
+        if (msp === 'q' || msp === '退出') {
             break;
         }
         switch (msp) {
