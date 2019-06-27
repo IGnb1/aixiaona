@@ -15,7 +15,7 @@
     // 1. 询问
     function XiaoNa() {
         this.ask = function () {
-            var msp = prompt('小娜\n1.求和\n2.日期\n3.讲笑话\n输入q可以退出小娜');
+            var msp = prompt('小娜\n1.求和\n2.日期\n3.讲笑话\n4.复读机\n输入q可以退出小娜');
             return msp;
         }
         // 3. 求和
@@ -68,6 +68,19 @@
             }
             console.log(jokes);
         }
+        this.again = function () {
+            var text = prompt('哪里不会点哪里，才怪');
+            var r = text;
+            while(1){
+                if(text === 'q' || text === '退出'){
+                    break;
+                }
+                text = r;
+                r = prompt(text);
+                r === '' || r == null ? alert('继续啊，谁怕谁!') : '怕了吧？';
+                // r = prompt('再来');
+            }
+        }
     }
     var xiaona = new XiaoNa();
     //笑话数组放在全局防止每次判断都会重置笑话，阻止添加
@@ -91,6 +104,10 @@
             case '3':
             case '笑话':
                 xiaona.telljokes();
+                break;
+            case '4':
+            case '复读机':
+                xiaona.again();
                 break;
             default:
                 alert('输入错了');
